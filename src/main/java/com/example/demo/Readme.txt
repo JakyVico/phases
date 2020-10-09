@@ -17,4 +17,5 @@ Algoritmo: Se obtiene la epacta si es diferente de 0 se le resta
             a la fecha actual ingresada para obtener la fecha base
             despues se le suma su correspondiente tiempo entre fases.
 
+Nota: Para ej ejercicio 2 y 3 recibo un valor del 0 al 7 dependidendo del tipo de luna que se requiere
 

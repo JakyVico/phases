@@ -23,7 +23,7 @@ public class AstrologyController {
         try{
             Algorithm resMoonPhase= new Algorithm();
             Map<String,Map> stucture= new HashMap<>();
-            stucture.put("moonPhases",resMoonPhase.calculate(month,year));
+            stucture.put("moonPhases",resMoonPhase.calculate(month,year,9));
             return ResponseEntity.status(HttpStatus.OK).body(stucture);
 
         }catch (Exception e){
@@ -40,6 +40,23 @@ public class AstrologyController {
         try{
             Algorithm resMoonPhase= new Algorithm();
             Map<String,Map> stucture= new HashMap<>();
+            stucture.put("moonPhases",resMoonPhase.calculate(01,year,1));
+            return ResponseEntity.status(HttpStatus.OK).body(stucture);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return (ResponseEntity<?>) ResponseEntity.status(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+    @RequestMapping("/specialMoonGiven")
+    public ResponseEntity<?> specialMoonGivenReq(@RequestParam(name="year")Integer year,@RequestParam(name="moon")Integer moon){
+
+        try{
+            Algorithm resMoonPhase= new Algorithm();
+            Map<String,Map> stucture= new HashMap<>();
+            stucture.put("moonPhases",resMoonPhase.calculate(01,year,moon));
             return ResponseEntity.status(HttpStatus.OK).body(stucture);
 
         }catch (Exception e){
